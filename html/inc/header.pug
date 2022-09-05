@@ -1,0 +1,65 @@
+-var main_menu=['Главная','Продукция','О компании','Производство','Сертификаты','Контакты']
+
+
+header
+    .topbar
+        .container
+            .d_flex
+                .logo
+                    a(href="#")
+                        img(src=dir+'logo.svg')
+                .mm_btn
+                    button.hamburger
+                        span
+                        span
+                        span
+                .h_right
+                    .h_lang
+                        button.h_lang_btn Русский
+                        .h_dropdown
+                            ul
+                                li
+                                    a(href="#") Русский
+                                li
+                                    a(href="#") English
+                                li
+                                    a(href="#") 中国
+
+                    .h_contacts
+                        ul
+                            li
+                                a(href="tel: +7 (800) 636-93-89") +7 (800) 636-93-89
+                            li
+                                a(href="mailto: example@yandex.ru") example@yandex.ru
+
+    nav.navbar
+        .container
+            .main_menu
+                ul.nav
+                    for menu_item , index in main_menu
+                        li
+                            a(href="#")=menu_item
+
+
+                .h_lang
+                    button.h_lang_btn Русский
+                    .h_dropdown
+                        ul
+                            li
+                                a(href="#") Русский
+                            li
+                                a(href="#") English
+                            li
+                                a(href="#") 中国
+
+                .h_contacts
+                    ul
+                        li
+                            a(href="tel: +7 (800) 636-93-89") +7 (800) 636-93-89
+                        li
+                            a(href="mailto: example@yandex.ru") example@yandex.ru
+
+
+                a.btn_secondary(href="#") Связаться с нами
+
+
