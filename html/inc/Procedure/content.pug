@@ -1,0 +1,23 @@
+-var stage=['Buyer sends properly made on the company letterhead, stamped and signed LOI in the name of VIGIL.','VIGIL LLC issues SCO.','Buyer issues ICPO','Seller issues FCO and draft of the Contract for confirming by the Buyer.','Buyer signs and sends the FCO and draft of the Contract with amendments, if any. At the same stage Buyer sends the draft of the financial instrument (SBLC, DLC).-','Seller check all the potential risks, confirms financial instrument and sends the original Contract to the Buyer.','Contract to be verified by the Seller and Buyer and signed the electronic version.','Buyer provides POF in form of BCL or RWA (bank to bank ONLY).','Seller conduct the SGS Inspection of the goods at the warehouse/storage and provides POP (bank to bank ONLY).','Buyer’s bank sends Previous financial instrument for acceptance to the Seller’s bank.','Seller’s bank confirms the acceptability of the terms and conditions of the financial instrument otherwise advise the amendments, if any.','Buyer’s bank issues Final financial instrument to the Seller’s bank','Seller’s bank issues P/B 2.0% in favor of the Buyer to the Buyer’s bank.0','Seller conduct the SGS Inspection of the goods at the port of loading and loads the cargo.','Seller sends original shipment documents to the Buyer’s bank and Buyer’s bank pays 100% invoice value via MT103 to the Seller’s bank.','Parties repeat all again in case when everyone is happy.'];
+
+
+.page_content
+    .container
+        .stage_list
+            for stage_item , index in stage
+                -var count=index+1
+                .stage_item
+                    picture
+                        img(src=dir+'stage/'+count+".svg")
+                    .txt
+                        .stage_title Stage #{count}
+                        .stage_desc=stage_item
+                            if index===0
+                                .links <a href="#">download LOI in Word</a> / <a href="#">download LOI in PDF</a>
+
+        .d_block
+            .note NOTE: The final Procedures will be indicated in the Seller’s FCO.
+
+        .d_block
+            .docs <span class="d_block">SAMPLE DOCUMENTS:</span>
+                .links <a href="#">download LOI in Word</a> / <a href="#">download LOI in PDF</a>

@@ -649,3 +649,110 @@ footer
   &:hover, &:focus
     text-decoration: none
     color: #fff
+
+
+
+
+.stage_list
+  margin-bottom: 30px
+  @media (min-width: 768px)
+    column-count: 2
+
+
+  .stage_item
+    +flex
+    +ai-center
+    margin-bottom: 35px
+    padding-right: 30px
+    picture
+      min-width: 88px
+      +flex
+      margin-right: 20px
+      @media (max-width: 1200px)
+        min-width: 68px
+        width: 68px
+      @media (max-width: 767px)
+        margin-right: 10px
+      @media(max-width: 575px)
+        min-width: 50px
+        width: 50px
+    .txt
+      .stage_title
+        font-size: 30px
+        font-weight: 500
+        background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        background-clip: text
+        text-fill-color: transparent
+        display: inline-block
+        @media (max-width: 1200px)
+          font-size: 25px
+
+      .stage_desc
+        color: #000
+        font-size: 23px
+        line-height: 28px
+        font-weight: 200
+        @media (max-width: 1200px)
+          font-size: 18px
+          line-height: 1.2
+        @media (max-width: 767px)
+          font-size: 16px
+
+      .links
+        background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        background-clip: text
+        text-fill-color: transparent
+        display: inline-block
+        font-weight: 500
+
+
+
+.page_content
+  padding: 35px 0
+.note
+  background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  text-fill-color: transparent
+  display: inline-block
+  font-size: 30px
+  line-height: 36px
+  font-weight: 500
+  max-width: 550px
+  margin-bottom: 40px
+  @media (max-width: 1200px)
+    font-size: 25px
+    margin-bottom: 20px
+  @media (max-width: 767px)
+    font-size: 20px
+
+.d_block
+  display: block
+.docs
+  display: inline-block
+  //width: 100%
+  font-size: 30px
+  line-height: 36px
+  font-weight: 500
+  background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  text-fill-color: transparent
+  margin-bottom: 50px
+
+  @media (max-width: 1200px)
+    font-size: 25px
+    margin-bottom: 30px
+  @media (max-width: 767px)
+    font-size: 20px
+
+
+
+
+
