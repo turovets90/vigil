@@ -206,6 +206,21 @@ body
   margin: auto
 
 
+
+h1, .h1, .page_title
+  font-size: 50px
+  line-height: 61px
+  font-weight: 500
+  display: inline-block
+  text-transform: uppercase
+  margin-top: 10px
+  @media (max-width: 1200px)
+    font-size: 40px
+    line-height: 40px
+  @media (max-width: 991px)
+    font-size: 30px
+    line-height: 30px
+
 //.home
   header
     background: #EFEFEF
@@ -528,6 +543,8 @@ footer
       background: #4F4C4C
     .main_menu .nav>li a
       color: #4F4C4C
+      &:hover, &:focus
+        color: $blue
 
 
   .footer_contacts
@@ -680,11 +697,6 @@ footer
       .stage_title
         font-size: 30px
         font-weight: 500
-        background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
-        background-clip: text
-        text-fill-color: transparent
         display: inline-block
         @media (max-width: 1200px)
           font-size: 25px
@@ -701,11 +713,6 @@ footer
           font-size: 16px
 
       .links
-        background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
-        -webkit-background-clip: text
-        -webkit-text-fill-color: transparent
-        background-clip: text
-        text-fill-color: transparent
         display: inline-block
         font-weight: 500
 
@@ -714,11 +721,7 @@ footer
 .page_content
   padding: 35px 0
 .note
-  background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
-  -webkit-background-clip: text
-  -webkit-text-fill-color: transparent
-  background-clip: text
-  text-fill-color: transparent
+
   display: inline-block
   font-size: 30px
   line-height: 36px
@@ -739,11 +742,6 @@ footer
   font-size: 30px
   line-height: 36px
   font-weight: 500
-  background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
-  -webkit-background-clip: text
-  -webkit-text-fill-color: transparent
-  background-clip: text
-  text-fill-color: transparent
   margin-bottom: 50px
 
   @media (max-width: 1200px)
@@ -754,5 +752,61 @@ footer
 
 
 
+.gradient
+  background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  text-fill-color: transparent
 
+.news_list2
+  .item
+    width: 100%
+    margin-bottom: 30px
+    @media (max-width: 767px)
+      margin-bottom: 60px
+    .news_item
+      +flex
+      +wrap
+      width: 100%
+      text-decoration: none
+      &:hover, &:focus
+        text-decoration: none
+      picture
+        width: 44%
+        @media (max-width: 767px)
+          width: 100%
+          +flex
+          //margin-bottom: 10px
 
+      .txt
+        width: 55%
+        padding-left: 23px
+        @media (max-width: 767px)
+          width: 100%
+          padding-left: 0
+        .news_title
+          margin-bottom: 10px
+          font-size: 33px
+          font-weight: 400
+          @media (max-width: 1200px)
+            font-size: 30px
+          @media (max-width: 991px)
+            font-size: 26px
+          @media (max-width: 767px)
+            font-size: 24px
+            margin-bottom: 0
+          @media(max-width: 575px)
+            font-size: 22px
+        .news_excerpt
+          color: #000
+          font-size: 27px
+          line-height: 33px
+          font-weight: 200
+          @media (max-width: 1200px)
+            font-size: 24px
+            line-height: 1
+          @media (max-width: 991px)
+            font-size: 18px
+          @media (max-width: 767px)
+            font-size: 16px
