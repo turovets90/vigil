@@ -4,7 +4,8 @@ html
         - var page = { title: 'Home' }
         include inc/head.pug
     body
-        include inc/header.pug
-        //include inc/index/content
-        include inc/footer
+        .wrapper
+            include inc/header.pug
+            include inc/index/content
+            include inc/footer
         include inc/scripts.pug

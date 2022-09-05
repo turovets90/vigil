@@ -1,65 +1,31 @@
--var main_menu=['Главная','Продукция','О компании','Производство','Сертификаты','Контакты']
+-var main_menu=['Home','About us','Products','Procedure','News','Contacts']
 
 
 header
-    .topbar
-        .container
-            .d_flex
-                .logo
-                    a(href="#")
-                        img(src=dir+'logo.svg')
-                .mm_btn
-                    button.hamburger
-                        span
-                        span
-                        span
-                .h_right
-                    .h_lang
-                        button.h_lang_btn Русский
-                        .h_dropdown
-                            ul
-                                li
-                                    a(href="#") Русский
-                                li
-                                    a(href="#") English
-                                li
-                                    a(href="#") 中国
+    .container
+        .header_row
+            .logo
+                a(href="#")
+                    img(src=dir+"logo.png")
 
-                    .h_contacts
-                        ul
-                            li
-                                a(href="tel: +7 (800) 636-93-89") +7 (800) 636-93-89
-                            li
-                                a(href="mailto: example@yandex.ru") example@yandex.ru
-
-    nav.navbar
-        .container
             .main_menu
+                .mm_close
                 ul.nav
-                    for menu_item , index in main_menu
-                        li
-                            a(href="#")=menu_item
+                    for m_item, index in main_menu
+                        li(class=(index===2)?'has_child':'')
+                            a(href="#")=m_item
+                            if index===2
+                                ul.sub-menu
+                                    -for(var i=1;i<=5;i++)
+                                        li
+                                            a(href="#") Link #{i}
 
 
-                .h_lang
-                    button.h_lang_btn Русский
-                    .h_dropdown
-                        ul
-                            li
-                                a(href="#") Русский
-                            li
-                                a(href="#") English
-                            li
-                                a(href="#") 中国
+            .mm_btn
+                button.hamburger
+                    span
+                    span
+                    span
 
-                .h_contacts
-                    ul
-                        li
-                            a(href="tel: +7 (800) 636-93-89") +7 (800) 636-93-89
-                        li
-                            a(href="mailto: example@yandex.ru") example@yandex.ru
-
-
-                a.btn_secondary(href="#") Связаться с нами
 
 

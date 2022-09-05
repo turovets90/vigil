@@ -23,8 +23,8 @@
 
 
 @import "./css/slick-less"
-@import "./css/select2"
-@import "./css/fancybox"
+//@import "./css/select2"
+//@import "./css/fancybox"
 
 =b_a()
   content: ''
@@ -122,14 +122,14 @@
   -moz-animation: $transition_default
   -o-animation: $transition_default
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap')
 
+$font: 'Inter', sans-serif
 
 $transition_default: .3s linear
 
-$blue: #007AB8
-$blue_light: #D9EBF4
-$blue_hover: #0092DB
-$text_color: #2D3234
+$blue: #008EEC
+
 
 a, button
   +transition($transition_default)
@@ -186,3 +186,466 @@ body
   position: relative
   padding: 0
   margin: 0
+  color: #000
+  font-size: 30px
+  line-height: 50px
+  font-weight: 300
+  font-family: $font
+
+
+.wrapper
+  width: 100%
+  max-width: 1440px
+  margin: auto
+
+.container
+  width: 100%
+  max-width: 1310px
+  padding-left: 15px
+  padding-right: 15px
+  margin: auto
+
+
+//.home
+  header
+    background: #EFEFEF
+    color: #4F4F4F
+
+
+  .main_menu
+    .nav
+      li
+        &.has_child
+          > a
+            &:hover, &:focus
+              &:after
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.35487 7.46983C6.71117 7.82613 7.28883 7.82613 7.64513 7.46983L13.4513 1.66367C13.8076 1.30737 13.8076 0.729703 13.4513 0.373408C13.095 0.0171129 12.5173 0.017113 12.161 0.373408L7 5.53444L1.83897 0.373409C1.48267 0.0171134 0.905002 0.0171135 0.548707 0.373409C0.192412 0.729704 0.192412 1.30737 0.548707 1.66367L6.35487 7.46983ZM6.08765 5L6.08765 6.8247L7.91235 6.8247L7.91235 5L6.08765 5Z' fill='%23008EEC'/%3e%3c/svg%3e ")
+
+            &:after
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.35487 7.46983C6.71117 7.82613 7.28883 7.82613 7.64513 7.46983L13.4513 1.66367C13.8076 1.30737 13.8076 0.729703 13.4513 0.373408C13.095 0.0171129 12.5173 0.017113 12.161 0.373408L7 5.53444L1.83897 0.373409C1.48267 0.0171134 0.905002 0.0171135 0.548707 0.373409C0.192412 0.729704 0.192412 1.30737 0.548707 1.66367L6.35487 7.46983ZM6.08765 5L6.08765 6.8247L7.91235 6.8247L7.91235 5L6.08765 5Z' fill='%234F4F4F'/%3e%3c/svg%3e ")
+
+        > a
+          color: #4F4F4F
+          &:hover, &:focus
+            color: $blue
+
+header
+  background: linear-gradient(270deg, #50B9FF 0%, #B1E0FF 100%)
+  color: #fff
+  padding: 8px 0
+  @media (max-width: 767px)
+    padding: 0
+
+
+.header_row
+  +flex
+  +wrap
+  +j-beetween
+  +ai-center
+
+
+.logo
+  @media (max-width: 1200px)
+    img
+      max-width: 250px
+  @media (max-width: 991px)
+    img
+      max-width: 200px
+.header_row
+  .main_menu
+    @media (max-width: 767px)
+      position: fixed
+      top: 0
+      right: 0
+      width: 80%
+      height: 100%
+      padding: 10px
+      background: #efefef
+      z-index: 9999
+      +transition($transition_default)
+      +transform(translateX(100%))
+      opacity: 0
+      &.open
+        +transform(translateX(0))
+        opacity: 1
+
+      .nav
+        li
+          a
+            color: #000
+
+.main_menu
+
+  .mm_close
+    @media (min-width: 768px)
+      display: none
+    width: 30px
+    height: 30px
+    position: relative
+    cursor: pointer
+    &:before, &:after
+      +b_a
+      width: 30px
+      height: 2px
+      background: $blue
+      +m_a
+
+    &:before
+      +transform(rotate(45deg))
+    &:after
+      +transform(rotate(-45deg))
+
+  .nav
+    +flex
+    +wrap
+    +ai-center
+    > li
+      padding: 20px 20px
+      position: relative
+      line-height: 1.5
+      @media (max-width: 991px)
+        padding: 0 10px
+      @media (max-width: 767px)
+        width: 100%
+      @media (min-width: 768px)
+        +flex
+        &:last-child
+          padding-right: 0
+        &:first-child
+          padding-left: 0
+        + li
+          &:before
+            +b_a
+            left: 0
+            top: 0
+            bottom: 0
+            margin: auto
+            width: 1px
+            height: 46px
+            background: #D8D8D8
+
+      &:hover
+        @media (min-width: 768px)
+          > a
+            color: #4F4F4F
+          .sub-menu
+            display: block
+
+      &.has_child
+        &:hover
+
+          > a
+            &:after
+              +transform(rotate(-180deg))
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.35487 7.46983C6.71117 7.82613 7.28883 7.82613 7.64513 7.46983L13.4513 1.66367C13.8076 1.30737 13.8076 0.729703 13.4513 0.373408C13.095 0.0171129 12.5173 0.017113 12.161 0.373408L7 5.53444L1.83897 0.373409C1.48267 0.0171134 0.905002 0.0171135 0.548707 0.373409C0.192412 0.729704 0.192412 1.30737 0.548707 1.66367L6.35487 7.46983ZM6.08765 5L6.08765 6.8247L7.91235 6.8247L7.91235 5L6.08765 5Z' fill='%234F4F4F'/%3e%3c/svg%3e ")
+
+        > a
+          @media (min-width: 768px)
+
+            position: relative
+            +flex
+            +ai-center
+
+            &:after
+              content: ''
+              width: 14px
+              height: 8px
+              margin-left: 10px
+              +transition($transition_default)
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6.35487 7.46983C6.71117 7.82613 7.28883 7.82613 7.64513 7.46983L13.4513 1.66367C13.8076 1.30737 13.8076 0.729703 13.4513 0.373408C13.095 0.0171129 12.5173 0.017113 12.161 0.373408L7 5.53444L1.83897 0.373409C1.48267 0.0171134 0.905002 0.0171135 0.548707 0.373409C0.192412 0.729704 0.192412 1.30737 0.548707 1.66367L6.35487 7.46983ZM6.08765 5L6.08765 6.8247L7.91235 6.8247L7.91235 5L6.08765 5Z' fill='white'/%3e%3c/svg%3e ")
+
+      a
+        text-decoration: none
+        font-size: 25px
+        color: #fff
+        @media (max-width: 1200px)
+          font-size: 20px
+        @media (max-width: 991px)
+          font-size: 16px
+        @media (max-width: 767px)
+          font-size: 20px
+        &:hover, &:focus
+          text-decoration: none
+          color: #4F4F4F
+      .sub-menu
+
+        @media (min-width: 768px)
+          display: none
+          position: absolute
+          top: 100%
+          left: 0
+          background: #fff
+          +border-radius(10px)
+          width: 100%
+          min-width: 250px
+          z-index: 999
+          +box-shadow(0px 8px 24px rgb(6 29 40 / 12%))
+        li
+          a
+            font-size: 18px
+            display: inline-block
+            position: relative
+            padding: 10px 20px
+            color: #000
+
+
+
+
+
+.mm_btn
+  @media (min-width: 768px)
+    display: none
+
+  +flex
+  +ai-center
+  .hamburger
+    background: none
+    border: 0
+    position: relative
+    width: 30px
+    height: 25px
+    span
+      position: absolute
+      width: 100%
+      height: 3px
+      background: #fff
+      +border-radius(3px)
+      left: 0
+      &:nth-child(1)
+        top: 0
+      &:nth-child(2)
+        top: 0
+        bottom: 0
+        margin: auto
+      &:nth-child(3)
+        bottom: 0
+
+
+
+.main_news
+  padding: 30px 0 15px
+.news_list
+  +flex
+  +wrap
+  margin: 0 -15px
+  +j-beetween
+  .item
+    width: 33.33%
+    margin-bottom: 30px
+    padding: 0 15px
+    @media (min-width: 1201px)
+      max-width: 405px
+    @media (max-width: 1200px)
+      width: 50%
+
+    @media (max-width: 767px)
+      width: 100%
+    .news_item
+      .news_image
+        width: 100%
+        height: 250px
+        background-position: center
+        background-size: cover
+        position: relative
+        margin-bottom: 5px
+        .news_date
+          color: #fff
+          font-size: 16px
+          position: absolute
+          top: 18px
+          right: 18px
+          line-height: 1
+
+      .news_title
+        text-decoration: none
+        color: $blue
+        font-size: 20px
+        line-height: 25px
+        font-weight: 700
+
+
+      .news_excerpt
+        font-size: 16px
+        font-weight: 300
+        line-height: 20px
+        color: #000
+        margin-bottom: 10px
+
+
+      .read_more
+        background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+        background-clip: text
+        text-fill-color: transparent
+        font-weight: 500
+        font-size: 21px
+        text-transform: uppercase
+        text-decoration: underline
+        position: relative
+        display: inline-block
+        line-height: 26px
+        &:before
+          +b_a
+          left: 0
+          bottom: 0
+          width: 100%
+          height: 2px
+          background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+
+
+.section_title
+  color: $blue
+  font-size: 50px
+  line-height: 1
+  font-weight: 800
+  margin-bottom: 60px
+  @media (max-width: 1200px)
+    font-size: 40px
+    margin-bottom: 40px
+  @media (max-width: 991px)
+    font-size: 30px
+    margin-bottom: 30px
+  @media(max-width: 575px)
+    font-size: 25px
+
+
+
+
+footer
+  background: #ECE7E7
+  padding: 17px 0 0
+  .footer_row
+    +flex
+    +wrap
+    +ai-center
+    +j-beetween
+    border-bottom: 1px solid $blue
+    @media (max-width: 767px)
+      padding-bottom: 20px
+      margin-bottom: 10px
+    .main_menu .nav>li+li:before
+      background: #4F4C4C
+    .main_menu .nav>li a
+      color: #4F4C4C
+
+
+  .footer_contacts
+    +flex
+    +wrap
+    padding: 35px 0
+    margin: 0 -15px
+    @media (max-width: 767px)
+      padding: 20px 0
+    .item
+      width: 33.33%
+      +flex
+      padding: 0 15px
+      @media (max-width: 767px)
+        width: 100%
+        margin-bottom: 20px
+      picture
+        min-width: 50px
+        margin-right: 22px
+        @media (max-width: 1200px)
+          margin-right: 10px
+      .txt
+        color: #616161
+        font-size: 21px
+        line-height: 26px
+        @media (max-width: 1200px)
+          font-size: 18px
+        @media (max-width: 991px)
+          font-size: 16px
+        a
+          color: #616161
+          text-decoration: none
+          &:hover, &:focus
+            text-decoration: underline
+            color: $blue
+        span
+          color: $blue
+          @media (max-width: 1200px)
+            display: block
+
+
+.main_about
+  position: relative
+  padding-bottom: 30px
+  @media (max-width: 767px)
+    padding-top: 60px
+.main_about_row
+  +flex
+  +wrap
+  .col_left
+    width: 56%
+    +flex
+    +ai-center
+    padding-top: 65px
+    @media (max-width: 1440px)
+      width: 50%
+      padding-right: 30px
+    @media (max-width: 1200px)
+      padding-top: 0
+
+    @media (max-width: 767px)
+      width: 100%
+      margin-bottom: 20px
+
+    .section_title
+      margin-bottom: 35px
+      @media (max-width: 1200px)
+        margin-bottom: 20px
+    .desc
+      color: #3A3939
+      font-size: 25px
+      line-height: 30px
+      font-weight: 300
+      margin-bottom: 30px
+      @media (max-width: 1200px)
+        font-size: 20px
+        line-height: 20px
+        margin-bottom: 20px
+      @media (max-width: 767px)
+        font-size: 16px
+
+  .col_right
+    width: 44%
+    min-height: 555px
+    @media (max-width: 1440px)
+      width: 50%
+    @media (max-width: 1200px)
+      +flex
+      +ai-center
+    @media (max-width: 767px)
+      width: 100%
+    img
+      @media (min-width: 1201px)
+        position: absolute
+        right: 0
+        top: 0
+        @media (max-width: 1440px)
+          max-width: 50%
+
+
+
+
+.read_more_btn
+  border: 0
+  text-decoration: none
+  background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+  +border-radius(30px)
+  display: inline-block
+  position: relative
+  color: #fff
+  text-transform: uppercase
+  font-size: 21px
+  font-weight: 500
+  padding: 13px 20px
+  line-height: 1
+  width: 100%
+  max-width: 245px
+  text-align: center
+  &:hover, &:focus
+    text-decoration: none
+    color: #fff

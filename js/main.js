@@ -1,19 +1,20 @@
 $(document).ready(function(){
 
-    /* $('.mm_btn').click(function () {
-       $('.main_menu').toggleClass('open');
-       $('html').toggleClass('page_noscroll');
-       $(this).toggleClass('act');
+    $('.mm_btn').click(function () {
+       $('.main_menu').addClass('open');
+       $('html').addClass('page_noscroll');
+
+       $('.mm_close').click(function(){
+           $('.main_menu').removeClass('open');
+           $('html').removeClass('page_noscroll');
+        });
 
        return false;
    });
 
- '.faq_item_header').click(function(){
-       $(this).toggleClass('act').next().slideToggle();
-   });
 
 
-
+/*
     if($(window).innerWidth() < 768){
         $('.main_services_list').slick({
             slidesToShow:1,
