@@ -1,0 +1,23 @@
+.page_content
+    .container
+        h1.page_title.c_title Petroleum products
+        -var s_menu=['Сrude oil','Diesel','Gasoline','Aviation kerosene'];
+        .product_row
+            if page.title !=='Product2'
+                .col_left
+                    ul.sidebar_menu
+                        for s_item, index in s_menu
+                            li(class=(index===0)?'active':'')
+                                a(href="#")=s_item
+
+            .col_right
+                .product_img
+                    img(src=dir+"product.png")
+                    .product_title Сrude oil
+
+
+        .product_desc
+            p CORN (Zeamays) – a genus of large annual cereals in which grains formed in specific inflorescences - ears. Sweet corn (Zeamays) – the only cultural representative of this genus of the family Cereals (Poaceae), which, in turn, is divided into the following 9 botanical groups that distinguish by grain structure, as well as by its morphology: siliceous (Zeamaysimdurata), dentiform (Zeamaysindentata), semi-dentate (Zeamayssemidentata), bursting (Zeamayseverta), sugar (Zeamayssaccharata), starchy or mealy (Zeamaysamylacea), starchy-sugar (Zeamaysamyleosaccharata), waxy (Zeamaysceratina) and membranous (Zeamaystunicata).
+            p Corn is the second most selling culture after wheat. Global corn export more than 150 million tons.
+            p The largest exporters: USA, Brazil, Argentina, Ukraine, Russia.
+            p The largest importers: European Union, Mexica, Japan, Vietnam, South Korea, Bangladesh, Egypt, Algeria, Iran.

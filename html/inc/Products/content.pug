@@ -1,0 +1,12 @@
+.page_content
+    .container
+        h1.page_title.c_title Our main products
+
+        -var pr=['Petroleum products','Wood pellets for heating','Fertilizers','Food products','Animal feed products'];
+
+        .products_list
+            for pr_item, index in pr
+                -var count=index+1
+                .item(class=(index===0)?'first':'')
+                    a.product_item(href="#" style="background-image:url("+dir+"products/"+count+".png)")
+                        .product_item_title=pr_item
