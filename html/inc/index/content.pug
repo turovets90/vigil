@@ -1,3 +1,25 @@
+section.main_slider
+    .container.search_lang
+        form.search_form
+            input.search_field(type="text")
+            button.search_btn(type="submit")
+
+        ul.lang_menu
+            li
+                span.current_lang En
+                ul.sub-menu
+                    li
+                        a(href="#") Ru
+                    li
+                        a(href="#") Es
+
+    .slider
+        -for(var s=1;s<=3;s++)
+            .slider_item(style="background-image:url(/img/slider.png)")
+                .container
+                    .slider_item_title international trade in agricultural and <span class="gradient">food products</span> #{s}
+
+
 section.main_about
     .container
         .main_about_row

@@ -13,6 +13,15 @@ $(document).ready(function(){
    });
 
 
+    $('.slider').slick({
+        slidesToShow:1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+        infinite: true,
+        fade: true,
+    });
+
 
 /*
     if($(window).innerWidth() < 768){
