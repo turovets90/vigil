@@ -201,10 +201,126 @@ body
   @media(max-width: 575px)
     font-size: 16px
 
+  &#lang_ru
+    font-size: 24px
+    line-height: 24px
+    font-weight: 300
+    font-family: $font
+    @media (max-width: 1200px)
+      font-size: 20px
+      line-height: 1.2
+    @media (max-width: 991px)
+      font-size: 18px
+    @media (max-width: 767px)
+      font-size: 16px
+    @media (min-width: 768px)
+      @media (max-width: 991px)
+        .main_menu .nav>li a
+          font-size: 14px
+        .logo img
+          max-width: 170px
+    @media (min-width: 992px)
+      .main_menu .nav>li
+        padding: 20px 10px
+      .main_menu .nav>li a
+        font-size: 18px
+
+    @media (min-width: 1201px)
+      .main_menu .nav>li a
+        font-size: 22px
+
+      .main_slider .slider .slider_item .slider_item_title
+        font-size: 50px
+        line-height: 1.2
+
+
+  &#lang_tr
+    font-size: 24px
+    line-height: 24px
+    font-weight: 300
+    font-family: $font
+    @media (max-width: 1200px)
+      font-size: 20px
+      line-height: 1.2
+    @media (max-width: 991px)
+      font-size: 18px
+    @media (max-width: 767px)
+      font-size: 16px
+  &#lang_ar
+    font-size: 24px
+    line-height: 24px
+    font-weight: 300
+    font-family: $font
+    @media (max-width: 1200px)
+      font-size: 20px
+      line-height: 1.2
+    @media (max-width: 991px)
+      font-size: 18px
+    @media (max-width: 767px)
+      font-size: 16px
+
+    @media (min-width: 768px)
+      .main_menu .nav>li:last-child
+        padding-right: 20px
+      .main_menu .nav>li:first-child
+        padding-left: 20px
+      .main_menu .nav>li.has_child>a:after, .main_menu .nav>li.menu-item-has-children>a:after
+        margin-right: 10px
+        margin-left: 0
+      .lang_menu>li span:after
+        margin-left: 0
+        margin-right: 5px
+
+      .lang_menu
+        margin-right: 35px
+        margin-left: 0
+        .sub-menu
+          padding: 10px
+
+      .main_menu .nav>li+li:before
+        left: initial
+        right: 0
+      .news_list2 .item .news_item .txt
+        padding-left: 0
+        padding-right: 23px
+    @media (min-width: 1201px)
+      .main_about_row .col_right img
+        right: initial
+        left: 0
+
+    .main_about_row .col_left
+      @media (max-width: 1440px)
+        padding-left: 30px
+        padding-right: 0
+
+    footer .footer_contacts .item picture
+      margin-left: 10px
+      margin-right: 0
+
+    .stage_list .stage_item picture
+      margin-right: 0
+      margin-left: 20px
+
+    .c_row .col_left
+      padding-right: 0
+      padding-left: 30px
+
+    .wpcf7-form
+      +flex
+      +j-end
+
+    .form_row .field.w_100
+      +flex
+      +j-end
+
+    @media (max-width: 767px)
+      .lang_menu .sub-menu li+li
+        margin-right: 10px
+
 
 .wrapper
   width: 100%
-  max-width: 1440px
+  max-width: 1920px
   margin: auto
 
 .container
@@ -316,6 +432,8 @@ header
 
 
 .logo
+  width: auto
+  height: auto
   @media (max-width: 1200px)
     img
       max-width: 250px
@@ -347,6 +465,10 @@ header
 
 .main_menu
 
+  .search_form, .lang_menu
+    @media (min-width: 768px)
+      display: none
+
   .mm_close
     @media (min-width: 768px)
       display: none
@@ -354,6 +476,7 @@ header
     height: 30px
     position: relative
     cursor: pointer
+    margin-bottom: 30px
     &:before, &:after
       +b_a
       width: 30px
@@ -370,6 +493,8 @@ header
     +flex
     +wrap
     +ai-center
+    @media (max-width: 767px)
+      margin-bottom: 20px
     > li
       padding: 20px 20px
       position: relative
@@ -378,6 +503,7 @@ header
         padding: 0 10px
       @media (max-width: 767px)
         width: 100%
+        padding-left: 0
       @media (min-width: 768px)
         +flex
         &:last-child
@@ -402,7 +528,7 @@ header
           .sub-menu
             display: block
 
-      &.has_child
+      &.has_child, &.menu-item-has-children
         &:hover
 
           > a
@@ -638,6 +764,7 @@ footer
             color: $blue
         span
           color: $blue
+          margin-right: 5px
           @media (max-width: 1200px)
             display: block
 
@@ -990,6 +1117,11 @@ footer
   +border-radius(32px)
   border: 1px solid #fff
   width: 230px
+  @media (max-width: 767px)
+    width: 100%
+    border: 1px solid #000
+    margin-bottom: 30px
+
 
   .search_field
     order: 2
@@ -1013,15 +1145,33 @@ footer
       width: 17px
       height: 19px
       background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='17' height='19' viewBox='0 0 17 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath opacity='0.7' fill-rule='evenodd' clip-rule='evenodd' d='M6.13268 0.281056C4.54334 0.467276 3.26189 1.13274 2.20092 2.32273C1.52704 3.07863 1.02885 3.97163 0.707946 4.99899C0.332271 6.20171 0.276592 7.68882 0.559803 8.9536C0.834787 10.1814 1.40001 11.2984 2.20092 12.1968C3.87811 14.0779 6.31227 14.7255 8.58818 13.8961C9.14049 13.6948 9.94875 13.2165 10.3791 12.8363L10.495 12.7339L13.1598 15.7239C14.6749 17.424 15.8877 18.7562 15.9709 18.8118C16.0866 18.8892 16.1582 18.9095 16.3124 18.9091C16.7639 18.9077 17.068 18.473 16.9742 17.963C16.9409 17.7819 16.9055 17.7403 14.2071 14.7113L11.4737 11.6429L11.6196 11.4295C11.912 11.0016 12.2255 10.3661 12.4204 9.80638C13.2108 7.53512 12.8895 4.96523 11.5712 3.01525C11.3136 2.63417 10.7252 1.9752 10.3932 1.69592C9.54134 0.979264 8.62285 0.542173 7.5637 0.349389C7.24579 0.291521 6.39147 0.250718 6.13268 0.281056ZM7.34947 1.88262C8.29319 2.05418 9.10328 2.47836 9.8078 3.16982C10.6839 4.02971 11.2449 5.19254 11.4181 6.50739C11.466 6.87166 11.4667 7.63959 11.4194 8.0121C11.0774 10.7054 9.03176 12.6957 6.60918 12.6922C5.26665 12.6903 4.07009 12.123 3.13726 11.0462C2.42966 10.2294 2.00455 9.29085 1.81858 8.13488C1.74635 7.68594 1.76401 6.6671 1.85205 6.2023C2.0653 5.07652 2.51812 4.14461 3.22703 3.37267C3.97197 2.56146 4.82229 2.07938 5.85623 1.88207C6.2053 1.81549 6.98173 1.81574 7.34947 1.88262Z' fill='white'/%3e%3c/svg%3e ")
+      @media (max-width: 767px)
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='17' height='19' viewBox='0 0 17 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath opacity='0.7' fill-rule='evenodd' clip-rule='evenodd' d='M6.13268 0.281056C4.54334 0.467276 3.26189 1.13274 2.20092 2.32273C1.52704 3.07863 1.02885 3.97163 0.707946 4.99899C0.332271 6.20171 0.276592 7.68882 0.559803 8.9536C0.834787 10.1814 1.40001 11.2984 2.20092 12.1968C3.87811 14.0779 6.31227 14.7255 8.58818 13.8961C9.14049 13.6948 9.94875 13.2165 10.3791 12.8363L10.495 12.7339L13.1598 15.7239C14.6749 17.424 15.8877 18.7562 15.9709 18.8118C16.0866 18.8892 16.1582 18.9095 16.3124 18.9091C16.7639 18.9077 17.068 18.473 16.9742 17.963C16.9409 17.7819 16.9055 17.7403 14.2071 14.7113L11.4737 11.6429L11.6196 11.4295C11.912 11.0016 12.2255 10.3661 12.4204 9.80638C13.2108 7.53512 12.8895 4.96523 11.5712 3.01525C11.3136 2.63417 10.7252 1.9752 10.3932 1.69592C9.54134 0.979264 8.62285 0.542173 7.5637 0.349389C7.24579 0.291521 6.39147 0.250718 6.13268 0.281056ZM7.34947 1.88262C8.29319 2.05418 9.10328 2.47836 9.8078 3.16982C10.6839 4.02971 11.2449 5.19254 11.4181 6.50739C11.466 6.87166 11.4667 7.63959 11.4194 8.0121C11.0774 10.7054 9.03176 12.6957 6.60918 12.6922C5.26665 12.6903 4.07009 12.123 3.13726 11.0462C2.42966 10.2294 2.00455 9.29085 1.81858 8.13488C1.74635 7.68594 1.76401 6.6671 1.85205 6.2023C2.0653 5.07652 2.51812 4.14461 3.22703 3.37267C3.97197 2.56146 4.82229 2.07938 5.85623 1.88207C6.2053 1.81549 6.98173 1.81574 7.34947 1.88262Z' fill='%23000'/%3e%3c/svg%3e ")
+
 
 .lang_menu
   position: relative
   margin-left: 35px
+  @media (max-width: 767px)
+    +flex
+    margin-left: 0
+    margin-bottom: 20px
+    > li
+      a
+        color: #000
+        text-decoration: none
+      + li
+        margin-left: 20px
   > li
+
     &:hover
       .sub-menu
         display: block
-    span, a
+    a
+      text-decoration: none
+      &:hover, &:focus
+        text-decoration: none
+    span
       color: #fff
       text-decoration: none
       font-size: 26px
@@ -1029,6 +1179,15 @@ footer
       position: relative
       +flex
       +ai-center
+      background: none !important
+      padding: 0
+      width: auto
+      height: auto
+      @media (max-width: 767px)
+        color: #000
+        display: none
+      &.active
+        color: $blue
 
       &:after
         content: ''
@@ -1036,20 +1195,30 @@ footer
         height: 9px
         background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='9' viewBox='0 0 16 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M7.29289 8.70711C7.68342 9.09763 8.31658 9.09763 8.70711 8.70711L15.0711 2.34315C15.4616 1.95262 15.4616 1.31946 15.0711 0.928932C14.6805 0.538408 14.0474 0.538408 13.6569 0.928932L8 6.58579L2.34315 0.928932C1.95262 0.538408 1.31946 0.538408 0.928932 0.928932C0.538408 1.31946 0.538408 1.95262 0.928932 2.34315L7.29289 8.70711ZM7 7L7 8L9 8L9 7L7 7Z' fill='white'/%3e%3c/svg%3e ")
         margin-left: 5px
+        @media (max-width: 767px)
+          display: none
 
 
   .sub-menu
-    display: none
-    position: absolute
-    top: 100%
-    left: 0
-    width: 100%
-    min-width: 50px
-    background: #fff
-    z-index: 3
-    +border-radius(10px)
-    +box-shadow(0px 8px 24px rgb(6 29 40 / 12%))
+    @media (min-width: 768px)
+      display: none
+      position: absolute
+      top: 100%
+      left: 0
+      width: 100%
+      min-width: 50px
+      background: #fff
+      z-index: 3
+      +border-radius(10px)
+      +box-shadow(0px 8px 24px rgb(6 29 40 / 12%))
+    @media (max-width: 767px)
+      +flex
+      +ai-end
+
     li
+      + li
+        @media (max-width: 767px)
+          margin-left: 10px
       a
         color: #000
         font-size: 26px
@@ -1058,6 +1227,14 @@ footer
         width: 100%
         text-align: center
 
+        span
+          color: #000
+          padding: 0
+          width: auto
+          height: auto
+          display: inline-block
+          &:after
+            display: none
         &:hover, &:focus
           text-decoration: underline
           color: $blue
@@ -1435,3 +1612,97 @@ img.float_right
     float: none
     margin-left: 0
     max-width: 100%
+
+
+
+.d_none
+  display: none
+
+#wpadminbar
+  @media (max-width: 767px)
+    display: none
+html
+  @media (max-width: 767px)
+    margin-top: 0 !important
+
+.lang_menu
+  .menu-item-96
+    display: none
+
+
+.content
+  img
+    display: block
+
+
+
+
+.codedropz-upload-handler
+  border: 1px solid #d5d5d5 !important
+  border-radius: 0 !important
+
+.codedropz-upload-container
+  padding: 16px 45px
+  @media (max-width: 767px)
+    padding: 15px
+.codedropz-upload-inner
+  +flex
+  +wrap
+  text-align: left
+  color: #606060
+  font-size: 24px
+  font-weight: 300
+  @media (max-width: 1200px)
+    font-size: 18px
+  @media (max-width: 767px)
+    font-size: 16px
+  .codedropz-btn-wrap
+    width: 100%
+    text-align: left
+    //margin-top: 12px
+    .cd-upload-btn
+      background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+      -webkit-background-clip: text
+      -webkit-text-fill-color: transparent
+      background-clip: text
+      text-fill-color: transparent
+      display: inline-block
+      font-size: 24px
+      font-weight: 300
+      text-decoration: underline !important
+      line-height: 1
+      position: relative
+      padding-bottom: 2px
+      @media (max-width: 1200px)
+        font-size: 18px
+      @media (max-width: 767px)
+        font-size: 16px
+      &:before
+        +b_a
+        left: 0
+        bottom: 0
+        width: 100%
+        height: 2px
+        background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
+
+
+.wpcf7-form-control-wrap
+  width: 100%
+.wpcf7-not-valid-tip
+  font-size: 16px
+
+.dnd-upload-details
+  font-size: 16px
+
+
+@media (min-width: 768px)
+  .lang_menu
+    .sub-menu
+      padding: 10px
+
+
+.content
+  img
+    margin-bottom: 20px
+    width: auto
+    height: auto

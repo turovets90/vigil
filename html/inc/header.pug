@@ -10,6 +10,13 @@ header
 
             .main_menu
                 .mm_close
+                ul.lang_menu
+                    li
+                        a.active(href="#") En
+                    li
+                        a(href="#") Ru
+                    li
+                        a(href="#") Es
                 ul.nav
                     for m_item, index in main_menu
                         li(class=(index===2)?'has_child':'')
@@ -19,6 +26,13 @@ header
                                     -for(var i=1;i<=5;i++)
                                         li
                                             a(href="#") Link #{i}
+
+                form.search_form
+                    input.search_field(type="text")
+                    button.search_btn(type="submit")
+
+
+
 
 
             .mm_btn

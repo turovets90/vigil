@@ -9,26 +9,49 @@
  * @package vigil
  */
 
+$current_lang=WPGlobus::Config()->language;
 ?>
+<footer>
+    <div class="container">
+        <div class="footer_row">
+            <div class="logo"> <?php the_custom_logo(); ?></div>
+            <div class="main_menu">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'menu' => 'footer_menu',
+                        'container' => '',
+                        'menu_class'  => 'nav',
+                    )
+                );
+                ?>
+            </div>
+        </div>
+        <div class="footer_contacts">
+            <div class="item">
+                <picture><img src="<?php echo get_template_directory_uri();?>/img/email.svg"/></picture>
+                <div class="txt"><span class="gradient">E-mail:</span><a href="mailto:<?php the_field('e-mail', 'option'); ?>"><?php the_field('e-mail', 'option'); ?></a></div>
+            </div>
+            <div class="item">
+                <picture><img src="<?php echo get_template_directory_uri();?>/img/phone.svg"/></picture>
+                <div class="txt"><span class="gradient">Phone:</span><a href="tel:<?php the_field('phone', 'option'); ?>"><?php the_field('phone', 'option'); ?></a></div>
+            </div>
+            <div class="item">
+                <picture><img src="<?php echo get_template_directory_uri();?>/img/location.svg"/></picture>
+                <div class="txt"><span class="gradient">Address:</span><?php the_field('address_'.$current_lang, 'option'); ?></div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'vigil' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'vigil' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'vigil' ), 'vigil', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+</div><!-- .wrapper -->
 
 <?php wp_footer(); ?>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="<?php echo get_template_directory_uri();?>/js/slick.js"></script>
+<script src="<?php echo get_template_directory_uri();?>/js/main.js"></script>
 
 </body>
 </html>

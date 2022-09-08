@@ -10,9 +10,9 @@
 ?>
 
 <section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'vigil' ); ?></h1>
-	</header><!-- .page-header -->
+	<div class="page-header">
+		<h1 class="page_title"><?php esc_html_e( 'Nothing Found', 'vigil' ); ?></h1>
+	</div><!-- .page-header -->
 
 	<div class="page-content">
 		<?php

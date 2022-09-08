@@ -10,42 +10,32 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<div class="page_content">
+    <div class="container">
+        <h1 class="page_title gradient"><?php the_archive_title(); ?></h1>
 
-		<?php if ( have_posts() ) : ?>
+        <div class="news_list2">
+        <?php
+        if(have_posts()) {
+            while(have_posts()) {
+                the_post();
+                ?>
+                <div class="item">
+                    <a class="news_item" href="<?php the_permalink(); ?>">
+                        <picture><img src="<?php echo get_the_post_thumbnail_url(); ?>"/></picture>
+                        <div class="txt">
+                            <div class="news_title gradient"><?php the_title(); ?></div>
+                            <div class="news_excerpt"><?php the_excerpt(); ?></div>
+                        </div>
+                    </a>
+                </div>
+            <?php }
+        }
+        ?>
+        </div>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+    </div>
+</div>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #main -->
-
-<?php
-get_sidebar();
+<?php ;
 get_footer();
