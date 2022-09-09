@@ -440,6 +440,7 @@ header
   @media (max-width: 991px)
     img
       max-width: 200px
+      max-height: 100px
 .header_row
   .main_menu
     @media (max-width: 767px)
@@ -581,9 +582,14 @@ header
           a
             font-size: 18px
             display: inline-block
+            width: 100%
             position: relative
             padding: 10px 20px
             color: #000
+            @media (max-width: 767px)
+              padding: 0 20px
+            &:hover, &:focus
+              color: $blue
 
 
 
@@ -682,12 +688,23 @@ header
         position: relative
         display: inline-block
         line-height: 26px
+        +transition($transition_default)
+        &:hover
+          +transform(translateY(-5px))
+          background: linear-gradient(90deg, #008EEC 0%, #0B3F66 100%)
+          -webkit-background-clip: text
+          -webkit-text-fill-color: transparent
+          background-clip: text
+          text-fill-color: transparent
+          &:before
+            background: linear-gradient(90deg, #008EEC 0%, #0B3F66 100%)
         &:before
           +b_a
           left: 0
           bottom: 0
           width: 100%
           height: 2px
+          +transition($transition_default)
           background: linear-gradient(90deg, #0B3F66 0%, #008EEC 100%)
 
 
@@ -847,9 +864,16 @@ footer
   width: 100%
   max-width: 245px
   text-align: center
+  +transition($transition_default)
   &:hover, &:focus
     text-decoration: none
     color: #fff
+
+  &:hover
+    +transform(translateY(-5px))
+    background: linear-gradient(90deg, #008EEC 0%, #0B3F66 100%)
+
+
 
 
 
@@ -1064,11 +1088,11 @@ footer
           margin: 0 5px
         &.slick-active, &:hover
           button
-            background: rgba(217, 217, 217, 0.8)
+            background: rgba(217, 217, 217, 1)
             @media (max-width: 767px)
               background: rgba(217, 217, 217, 1)
         button
-          width: 21px
+          width: 17px
           height: 17px
           background: rgba(217, 217, 217, 0.6)
           +border-radius(50%)
@@ -1085,8 +1109,13 @@ footer
       top: initial
       bottom: 75px
       z-index: 2
+      +transition($transition_default)
       @media (max-width: 767px)
         display: none !important
+      &:hover, &:focus
+        &:before
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26' height='46' viewBox='0 0 26 46' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0.87868 20.8787C-0.292893 22.0503 -0.292893 23.9497 0.87868 25.1213L19.9706 44.2132C21.1421 45.3848 23.0416 45.3848 24.2132 44.2132C25.3848 43.0416 25.3848 41.1421 24.2132 39.9706L7.24264 23L24.2132 6.02944C25.3848 4.85787 25.3848 2.95837 24.2132 1.7868C23.0416 0.615224 21.1421 0.615224 19.9706 1.7868L0.87868 20.8787ZM8 20L3 20L3 26L8 26L8 20Z' fill='%23008EEC'/%3e%3c/svg%3e ")
+
       &:before
         +b_a
         +m_a
@@ -1094,6 +1123,7 @@ footer
         height: 46px
         background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='26' height='46' viewBox='0 0 26 46' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0.87868 20.8787C-0.292893 22.0503 -0.292893 23.9497 0.87868 25.1213L19.9706 44.2132C21.1421 45.3848 23.0416 45.3848 24.2132 44.2132C25.3848 43.0416 25.3848 41.1421 24.2132 39.9706L7.24264 23L24.2132 6.02944C25.3848 4.85787 25.3848 2.95837 24.2132 1.7868C23.0416 0.615224 21.1421 0.615224 19.9706 1.7868L0.87868 20.8787ZM8 20L3 20L3 26L8 26L8 20Z' fill='white'/%3e%3c/svg%3e ")
         opacity: 1
+        +transition($transition_default)
     .slick-prev
       left: 75px
 
@@ -1165,8 +1195,9 @@ footer
   > li
 
     &:hover
-      .sub-menu
-        display: block
+      @media (min-width: 768px)
+        .sub-menu
+          display: block
     a
       text-decoration: none
       &:hover, &:focus
@@ -1445,6 +1476,7 @@ textarea.form_control
   width: 100%
   max-width: 280px
   text-align: center
+  +transition($transition_default)
   @media (max-width: 1200px)
     font-size: 18px
     padding: 15px 20px
@@ -1455,6 +1487,10 @@ textarea.form_control
   &:hover, &:focus
     text-decoration: none
     color: #fff
+  &:hover
+    +transform(translateY(-5px))
+    background: linear-gradient(90deg, #008EEC 0%, #0B3F66 100%)
+
 
 
 
@@ -1706,3 +1742,41 @@ html
     margin-bottom: 20px
     width: auto
     height: auto
+
+
+.lang_menu
+  li
+    @media (max-width: 767px)
+      a
+        &:hover, &:focus
+          text-decoration: none !important
+.menu_item_wpglobus_menu_switch:hover .sub-menu
+  @media (max-width: 767px)
+    +flex
+.menu-item-9999999999
+  @media (max-width: 767px)
+    margin-left: 0 !important
+    +flex
+    > a
+      margin-right: 10px
+      color: $blue !important
+      > span
+        color: $blue !important
+    span
+
+      display: block !important
+
+.page_noscroll
+  overflow: hidden
+  body
+    overflow: hidden
+  header
+    position: relative
+    z-index: 2
+    &:after
+      +b_a
+      width: 100%
+      height: 100vh
+      top: 0
+      left: 0
+      background: rgba(0, 0, 0, 0.6)

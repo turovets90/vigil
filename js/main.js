@@ -12,6 +12,15 @@ $(document).ready(function(){
        return false;
    });
 
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest(".main_menu.open").length) {
+            $(".main_menu.open").removeClass('open');
+            $("html").removeClass('page_noscroll');
+        }
+        e.stopPropagation();
+    });
+
+
 
     $('.slider').slick({
         slidesToShow:1,
